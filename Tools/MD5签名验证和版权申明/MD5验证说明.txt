@@ -1,0 +1,30 @@
+1，正式android包的MD5签名验证
+（1）MD5Manager.MD5 Android包的MD5值(string)
+（2）用法：可以在第一个loading场景调用
+
+public void MyMethod()
+    {
+#if UNITY_EDITOR || UNITY_IOS
+        //正常继续运行
+#elif UNITY_ANDROID
+        if (MD5Manager.MD5 == "48:C2:1B:8A:23:EB:32。。。。。。" || MD5Manager.MD5 == "87:E4:DE:90:06:51:59:。。。。。。")
+        {
+            //正常继续运行
+        }
+        else
+        {
+           //退出应用或者阻止进入下一个场景
+       }
+#endif
+    }
+
+（3）以上str的2个MD5值来源   
+<1>googlePlay后台创建应用后，可以获得一个。
+<2>用keystore打包.aab包后可以用AAB Viewer载入.aab文件和keystore文件获取MD5值
+       //使用java的keytool 命令获取apk文件（app.apk）的签名指纹，输出的信息总包括md5值
+       //keytool -list -printcert -jarfile D:\NewGames\JumpGirl\JumpGirl2.apk
+
+2，版权申明
+可以在游戏内设置一个机制，比如在某个地方点击10下，再另一个地方再点击15下，来弹出该页面。
+
+
