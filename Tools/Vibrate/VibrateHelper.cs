@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class VibrateHelper : MonoBehaviour
 {
-
     static public bool Acitve { get { return VibrateController.Vibratable; } }
 #if UNITY_IOS
         [DllImport("__Internal")]
